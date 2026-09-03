@@ -6,8 +6,14 @@ strings_no = int(args[2])
 tuning = args[3:(3+strings_no)]
 chords = args[(3+strings_no):]
 target=[]
-print(f"scale:{scale}\nstrgno:{strings_no}\ntuning:{tuning}\nchords:{chords}")
 
+#debug string 
+#print(f"scale:{scale}\nstrgno:{strings_no}\ntuning:{tuning}\nchords:{chords}")
+
+
+#--------------------------------------------------------------------------------------------
+#init chord list
+#--------------------------------------------------------------------------------------------
 degrees_rom={
         "i":0,
         "i#":1,
@@ -65,19 +71,27 @@ targets = {
         '7a':['7', '2#', '4#'],
         }
 
+
+
+#--------------------------------------------------------------------------------------------
+#cleaning input and removing extra garbage values/wrong usages
+#--------------------------------------------------------------------------------------------
 rmlist=[]
 
 for i in chords:
-    print(i)
+    #print(i)
     if i.strip() not in targets.keys():
         rmlist.append(i)
 
 for i in rmlist:
     chords.remove(i)
 
-print(f"fixed chords: {chords}")
+#print(f"fixed chords: {chords}")
 
 
+#--------------------------------------------------------------------------------------------
+#init fretboard
+#--------------------------------------------------------------------------------------------
 degree_nums_full = [' 1 ', ' 1#', ' 2 ', ' 2#', ' 3 ', ' 4 ', ' 4#', ' 5 ', ' 5#', ' 6 ', ' 6#', ' 7 ']
 degree_nums = [' 1 ', '   ', ' 2 ', '   ', ' 3 ', ' 4 ', '   ', ' 5 ', '   ', ' 6 ', '   ', ' 7 ']
 
@@ -86,11 +100,16 @@ notes_print = [" C ", " C#", " D ", " Eb", " E ", " F ", " F#", " G ", " G#", " 
 
 frets = [" 0 ", '   ', '   ', ' . ', '   ', ' . ', '   ', ' . ', '   ', ' . ', '   ', '   ', ' : ', '   ', '   ', ' . ', '   ', ' . ']
 header = ['_' for i in range(60)]
+
+
+#--------------------------------------------------------------------------------------------
+#print full fretboard
+#--------------------------------------------------------------------------------------------
+
 board = [frets]
 strings = tuning
 
-
-
+print() #making space for fretboard
 for strng in strings[:strings_no]:
     lst = []
     offset = notes.index(strng)
@@ -102,7 +121,12 @@ for strng in strings[:strings_no]:
 for row in board:
     print(" | ".join(row))
     pass
-print("\n\n")
+print("\n")
+
+
+#--------------------------------------------------------------------------------------------
+#print chord positions
+#--------------------------------------------------------------------------------------------
 
 board = [frets]
 scale_offset = notes.index(scale)
