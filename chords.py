@@ -30,6 +30,8 @@ degrees_rom={
         }
 
 targets = {
+        'scale':['1', '2', '3', '4', '5', '6', '7'],
+
         '1':['1', '3', '5'],
         '2':['2', '4', '6'],
         '3':['3', '5', '7'],
@@ -86,6 +88,7 @@ for i in chords:
 for i in rmlist:
     chords.remove(i)
 
+chords.insert(0, 'scale')
 #print(f"fixed chords: {chords}")
 
 
