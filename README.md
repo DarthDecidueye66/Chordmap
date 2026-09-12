@@ -16,9 +16,11 @@ The chords are takes as the scale degrees by default; <br>
 6 ~ 6m (minor) <br>
 7 ~ 7d (diminished) <br>
 
-Any version of any chord may be given by suffixing with appropiate identifier as: major (M), minor (m), diminished (d) or augmented (a) <br>
+Any version of any chord may be given by suffixing with appropiate identifier as: power (p), major (M), minor (m), diminished (d) or augmented (a) <br>
 Ex: major 3 ~ 3M, augmented 5 ~ 5a
 
+
+pentatonic scale can be used by giving a p after the scale: Ep, C#p, etc
 
 custom tunings can be entered in as: -t 'A D F G E B A A' etc <br>
 the number of strings given in -t must not be lower than the number of strings given in -n 

@@ -31,6 +31,7 @@ degrees_rom={
 
 targets = {
         'scale':['1', '2', '3', '4', '5', '6', '7'],
+        'pentatonic':['1', '2', '3', '5', '6'],
 
         '1':['1', '3', '5'],
         '2':['2', '4', '6'],
@@ -39,6 +40,14 @@ targets = {
         '5':['5', '7', '2'],
         '6':['6', '1', '3'],
         '7':['7', '2', '4'],
+
+        '1p':['1', '5'],
+        '2p':['2', '6'],
+        '3p':['3', '7'],
+        '4p':['4', '1'],
+        '5p':['5', '2'],
+        '6p':['6', '3'],
+        '7p':['7', '4'],
 
         '1M':['1', '3', '5'],
         '2M':['2', '4#', '6'],
@@ -88,7 +97,11 @@ for i in chords:
 for i in rmlist:
     chords.remove(i)
 
-chords.insert(0, 'scale')
+if scale[-1] == 'p':
+    chords.insert(0, 'pentatonic')
+    scale = scale[:-1]
+else:
+    chords.insert(0, 'scale')
 #print(f"fixed chords: {chords}")
 
 
